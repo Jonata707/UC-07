@@ -11,6 +11,10 @@ app.use("/autores", autorRoutes)
 app.use("/categorias", categoriasRoutes)
 app.use("/livros", livrosRoutes)
 
+app.get("/", (req, res) =>{
+    res.status(200).json({msg: "API de Livros."})
+})
+
 app.listen(port, ()=>{
     console.log(`Servidor rodando em : http://localhost:${port}`);
 })

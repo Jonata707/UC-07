@@ -11,11 +11,15 @@ export default class LivroModel{
         return livros.filter(l => l.categoriaId === Number(categoriaId));
     }
     static buscarPorAno(anoPublicacao){
-        return livros.filter(l => l.anoPublicacao() ===  Number(anoPublicacao))
+        return livros.filter(l => l.anoPublicacao ===  parseInt(anoPublicacao))
     }
     static buscarPorAutor(autorId){
         return livros.filter(l => l.autorId.toLowerCase() === autorId.toLowerCase())
     }
+    static buscarPorPreco(preco){
+        return livros.filter(l => l.preco ===  parseInt(preco))
+    }
+    
     static criar(livro){
         livros.push(livro);
         return livro;

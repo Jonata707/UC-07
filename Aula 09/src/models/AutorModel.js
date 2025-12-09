@@ -10,8 +10,8 @@ export default class AutorModel{
     static buscarPorNacionalidade(nacionalidade){
         return autores.filter(a => a.nacionalidade.toLowerCase() === nacionalidade.toLowerCase())
     }
-    static busacrPorNome(nome){
-        return autores.filter(a => a.nome.toLowerCase() === nome.toLowerCase())
+    static buscarPorNome(nome){
+        return autores.filter(a => a.nome.toLowerCase().includes(nome.toLowerCase(nome)))
     }
     static criar(autor){
         autores.push(autor);

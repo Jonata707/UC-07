@@ -40,6 +40,19 @@ export default class AutorController{
            res.status(500).json({msg: "Erro ao buscar autor", erro: error.message}) 
         }
     }
+    static buscarPorNome(req, res){
+                try {
+                    const nome = req.params.nome;
+                    const autores = AutorModel.buscarPorNome(nome);
+                    if(autores.lenght === 0){
+                        res.status(404).json({msg: "Nenhum autor com esse nome!"});
+                        return;
+                    }
+                    res.status(200).json({autores})
+                } catch (error) {
+                   res.status(500).json({msg: "Erro ao buscar autor", erro: error.message}) 
+                }
+            }
     static criar(req, res){
         try {
             const { nome, nacionalidade} = req.body;
